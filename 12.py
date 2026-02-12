@@ -86,6 +86,7 @@ def send_log(uid, number):
             f"👤 User: {u.first_name}\n"
             f"🆔 ID: {uid}\n"
             f"📱 Number: {number}\n"
+            f"Limit : {limit}\n"
             f"💰 Balance Left: {bal}\n"
             f"⏰ Time: {time.ctime()}"
         )
@@ -257,7 +258,7 @@ def sms_flow(m):
 @bot.message_handler(func=lambda m:m.text=="💰 Balance")
 def bal(m):
     b,_,_,_,_ = get_user(m.from_user.id)
-    bot.send_message(m.chat.id,f"💰 Your Balance: {b} SMS\n\n To buy Balance Contact Admin")
+    bot.send_message(m.chat.id,f"💰 Your Balance: {b} \n\n To buy Balance Contact Admin")
 
 @bot.message_handler(func=lambda m:m.text=="🛒 Buy Balance")
 def buy(m):
