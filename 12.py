@@ -3,14 +3,14 @@ from telebot import types
 import sqlite3, requests, time
 from datetime import datetime
 
-BOT_TOKEN = "8441571815:AAGm4So6KB8_Avona5-WGI-gTVH3ioh4gXs"
+BOT_TOKEN = "8584734061:AAFJwNTqW7kkxQLNtQfU9j0c9Y_fUEnGvWk"
 ADMIN_IDS = [7276206449, 6153708648]
 ADMIN_CONTACT = "@Unkonwn_BMT"
 ADMIN_CONTACTS = "@Unkonwn_BMT"
 
 FORCE_CHANNEL = "@mbtcyber"
 FORCE_CHANNEL_ID = "@mbtcyber"
-LOG_GROUP_ID = -5146519606
+LOG_GROUP_ID = -1003780103907
 
 JOIN_BONUS = 5     # New user bonus
 REF_BONUS = 10     # Referral bonus
