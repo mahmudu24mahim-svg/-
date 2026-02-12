@@ -85,8 +85,7 @@ def send_log(uid, number):
             "📤 <b>Attack LOG</b>\n\n"
             f"👤 User: {u.first_name}\n"
             f"🆔 ID: {uid}\n"
-            f"📱 Number: {number}\n"
-            f"Limit : {limit}\n"
+            f"📱 Number: {number}\n
             f"💰 Balance Left: {bal}\n"
             f"⏰ Time: {time.ctime()}"
         )
