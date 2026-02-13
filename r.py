@@ -52,6 +52,8 @@ CREATE TABLE IF NOT EXISTS sms_log(
 """)
 cur.execute("INSERT OR IGNORE INTO stats(id,total_sms,bot_status) VALUES(1,0,1)")
 db.commit()
+cur.execute("ALTER TABLE users ADD COLUMN last_daily INTEGER DEFAULT 0")
+db.commit()
 # ===== UTILS =====
 def get_user(uid):
     cur.execute("SELECT balance,banned,name,join_date,total_sms FROM users WHERE user_id=?", (uid,))
