@@ -111,6 +111,15 @@ def make_bar(percent):
     filled = int(percent / 10)
     return "█" * filled + "░" * (10 - filled)
     
+def is_banned(uid):
+    cur.execute("SELECT banned FROM users WHERE user_id=?", (uid,))
+    r = cur.fetchone()
+    return r and r[0] == 1
+def is_bot_on():
+    cur.execute("SELECT bot_status FROM stats WHERE id=1")
+    r = cur.fetchone()
+    return r and r[0] == 1   # 1 = ON, 0 = OFF       
+
 def main_menu(uid):
     kb = types.ReplyKeyboardMarkup(resize_keyboard=True)
     kb.add("🧨Start Attack")
@@ -199,10 +208,19 @@ def check_join(c):
 @bot.message_handler(func=lambda m:m.text=="🧨Start Attack")
 def sms_start(m):
     uid = m.from_user.id
+    if is_banned(uid):
+        bot.send_message(m.chat.id,"🚫 You are banned/n/nIf you want to know why you banned contact admin @unkonwn_BMT")
+        return
+    
+    # 🔹 Bot OFF check
+    if not is_bot_on():
+        bot.send_message(m.chat.id,"BOT IS NOW OFF 🥱\n\nBot want to take rest.")
+        return
+        
     bal,_,_,_,_ = get_user(uid)
 
     if bal <= 0:
-        bot.send_message(m.chat.id,"❌ Balance finished")
+        bot.send_message(m.chat.id,"❌ Balance finished/nCheck your Balance")
         return
 
     sms_state[uid] = {"step":"number"}
