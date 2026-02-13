@@ -3,7 +3,7 @@ from telebot import types
 import sqlite3, requests, time
 from datetime import datetime
 
-BOT_TOKEN = "7637226217:AAHkaw2bq_8vwuJWMB2jAXarZRfJWUJ3cdQ"
+BOT_TOKEN = "8584734061:AAFJwNTqW7kkxQLNtQfU9j0c9Y_fUEnGvWk"
 ADMIN_IDS = [7276206449, 6153708648]
 ADMIN_CONTACT = "@Unkonwn_BMT"
 ADMIN_CONTACTS = "@Unkonwn_BMT"
@@ -209,7 +209,7 @@ def check_join(c):
 def sms_start(m):
     uid = m.from_user.id
     if is_banned(uid):
-        bot.send_message(m.chat.id,"🚫 You are banned/n/nIf you want to know why you banned contact admin @unkonwn_BMT")
+        bot.send_message(m.chat.id,"🚫 You are banned\n\nIf you want to know why you banned contact admin @unkonwn_BMT")
         return
     
     # 🔹 Bot OFF check
